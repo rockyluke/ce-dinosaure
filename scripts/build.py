@@ -7,8 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {
-    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', genus='Genre', count='fiches'),
-    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', genus='Genus', count='entries'),
+    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', count='fiches'),
+    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
 }
 
 def load_entries():
@@ -58,7 +58,7 @@ def card(d, lang):
             alt = (f"{d['name']} : silhouette générique de sauropode, sans échelle" if lang == 'fr' else f"{d['name']}: generic sauropod silhouette, not to scale")
         visual = f'<a class="size-comparison" href="{esc(image["source"])}" target="_blank" rel="noreferrer" title="{esc(alt)} — Natural History Museum"><img src="../{esc(image["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></a>'
     return f'''<article class="dinosaur-card" {attrs}>
-  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2><p class="scientific">{t['genus']} : {esc(d['name'])}</p></div>{visual}</div></div>
+  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2></div>{visual}</div></div>
   <dl>{rows}</dl>{note}
   <a class="edit-link" href="https://github.com/rockyluke/ce-dinosaure/edit/main/{d['file']}" target="_blank" rel="noreferrer">{t['edit']} <span aria-hidden="true">↗</span></a>
 </article>'''
