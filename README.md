@@ -110,3 +110,10 @@ Le manifeste dans `docs/assets/original-silhouettes/` évite toute modification
 des fiches. Un humain de 1,75 m apparaît uniquement si la mesure est documentée ;
 les autres dessins sont sans échelle. Voir le README de ce dossier pour les
 conventions de comparaison et les limites des dessins.
+
+## Convention de commits
+
+Les nouveaux commits suivent Conventional Commits : `type(scope): description`.
+Le scope est facultatif. Exemples : `feat(catalog): add dinosaur entries`,
+`fix(ui): correct card alignment`, `docs: update contribution guidelines`.
+Les conventions détaillées sont dans [AGENTS.md](AGENTS.md).
