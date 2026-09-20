@@ -7,24 +7,27 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {
-    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', count='fiches'),
-    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
+    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', pterosaur='Ptérosaure', marine_reptile='Reptile marin', hybrid='Hybride fictif', fictional='Fiction contemporaine', universe='Univers', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', count='fiches'),
+    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', pterosaur='Pterosaur', marine_reptile='Marine reptile', hybrid='Fictional hybrid', fictional='Contemporary fiction', universe='Universe', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
 }
 
 def load_entries():
     entries = []
     for path in sorted((ROOT / 'content').glob('*/*.md')):
         data = json.loads(path.read_text().split('---', 2)[1])
-        assert data['period'] in {'triassic', 'jurassic', 'cretaceous'}
+        assert data['period'] in {'triassic', 'jurassic', 'cretaceous', 'fictional'}
+        assert (data['period'] == 'fictional') == (data['category'] == 'fictional')
         assert data['diet'] in {'herbivore', 'carnivore', 'omnivore', 'unknown'}
         assert data['category'] in {'real', 'fictional'}
-        assert data['kind'] == 'dinosaur'
+        assert data['kind'] in {'dinosaur', 'pterosaur', 'marine_reptile', 'hybrid'}
+        if data['category'] == 'fictional':
+            assert data.get('universe_fr') and data.get('universe_en')
         assert data['measurement'] in {'length', 'wingspan'}
         assert data['sources'] and all(s['url'].startswith('https://') for s in data['sources'])
         data['file'] = path.relative_to(ROOT).as_posix()
         entries.append(data)
     assert len({d['name'] for d in entries}) == len(entries), 'Duplicate genus'
-    return entries
+    return sorted(entries, key=lambda d: (d['category'] == 'fictional', d['name'].lower()))
 
 def card(d, lang):
     t = TEXT[lang]
@@ -36,7 +39,11 @@ def card(d, lang):
         number = value.replace('.', ',') if lang == 'fr' else value
         return f'{number} {unit}'
     rows = row('alias', d[f'aliases_{lang}'].replace(' | ', ' · ') or '—')
-    rows += f'<div><dt>{t["period"]}</dt><dd><a class="period-link" href="periods.html#{d["period"]}">{t[d["period"]]}</a></dd></div>'
+    if d['period'] == 'fictional':
+        rows += row('period', t['fictional'])
+        rows += row('universe', d[f'universe_{lang}'])
+    else:
+        rows += f'<div><dt>{t["period"]}</dt><dd><a class="period-link" href="periods.html#{d["period"]}">{t[d["period"]]}</a></dd></div>'
     rows += row('locations', d[f'locations_{lang}'])
     rows += row(d['measurement'], measure(d['length_m'], 'm'))
     rows += row('weight', measure(d['weight_kg'], 'kg')) + row('diet', t[d['diet']])
@@ -57,8 +64,8 @@ def card(d, lang):
         else:
             alt = (f"{d['name']} : silhouette générique de sauropode, sans échelle" if lang == 'fr' else f"{d['name']}: generic sauropod silhouette, not to scale")
         visual = f'<a class="size-comparison" href="{esc(image["source"])}" target="_blank" rel="noreferrer" title="{esc(alt)} — Natural History Museum"><img src="../{esc(image["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></a>'
-    return f'''<article class="dinosaur-card" {attrs}>
-  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2></div>{visual}</div></div>
+    return f'''<article class="dinosaur-card{' fictional' if d['category'] == 'fictional' else ''}" {attrs}>
+  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row{' without-image' if not visual else ''}"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2></div>{visual}</div></div>
   <dl>{rows}</dl>{note}
   <a class="edit-link" href="https://github.com/rockyluke/ce-dinosaure/edit/main/{d['file']}" target="_blank" rel="noreferrer">{t['edit']} <span aria-hidden="true">↗</span></a>
 </article>'''

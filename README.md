@@ -4,14 +4,16 @@ Catalogue bilingue pour **ce-dinosaure.fr**, dans la continuité de
 [ce-requin](https://github.com/rockyluke/ce-requin) et
 [cette-baleine](https://github.com/rockyluke/cette-baleine).
 
-18 fiches de genres de dinosaures réels (dont Archaeopteryx, dinosaure avien).
+27 fiches bilingues : 24 animaux réels (20 dinosaures, 2 ptérosaures et
+2 reptiles marins) et 3 hybrides fictifs de l’univers Jurassic World.
+Les groupes sont identifiés sur chaque fiche. Archaeopteryx est un dinosaure avien.
 Spinosaurus est présent
 une seule fois. Apatosaure et Brontosaure sont des alias recherchables de deux
 genres distincts : Apatosaurus et Brontosaurus.
 
 ## Contenu et sources
 
-Les fiches Markdown de `content/real/` sont la source de vérité. Leur en-tête
+Les fiches Markdown de `content/real/` et `content/fictional/` sont la source de vérité. Leur en-tête
 entre `---` contient du JSON (sous-ensemble de YAML), avec noms, alias bilingues,
 période, régime, lieux de découverte, mesures et liens de sources.
 Les dimensions sont des estimations représentatives issues des résumés des
@@ -66,3 +68,22 @@ d'extraction figurent dans le README du dossier des images et `sources.json`.
 Les images se placent à côté du nom et renvoient à leur source au clic.
 Les mesures sont affichées sans symbole d'approximation ; la note générale
 continue de préciser qu'il s'agit d'estimations.
+
+## Créatures fictives et autres reptiles préhistoriques
+
+Indominus rex, Scorpios rex et Indoraptor ont la catégorie `fictional`, le type
+`hybrid`, une période `fictional` (sans lien vers les périodes géologiques), et
+un univers bilingue. Les valeurs de fiction viennent des pages Jurassic Park
+Wiki françaises citées ; les poids inconnus restent à compléter. Le filtre
+Fictifs affiche ces trois fiches, avec une présentation distincte.
+
+Quetzalcoatlus et Pterodactylus sont identifiés comme ptérosaures, Plesiosaurus
+et Mosasaurus comme reptiles marins. Ils restent dans la catégorie Réels.
+Les mesures d'envergure sont distinguées des longueurs. Les estimations
+controversées sont précisées dans les notes.
+
+Ceratosaurus et Deinonychus utilisent les comparaisons NHM génériques locales.
+Aucune silhouette NHM n'est attribuée aux sept autres nouvelles fiches en
+l'absence de comparaison vérifiée ; leurs titres occupent toute la largeur.
+Les filtres géologiques ne sélectionnent que les animaux réels : conserver
+« Toutes » pour afficher les hybrides fictifs.

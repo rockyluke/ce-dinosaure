@@ -124,5 +124,19 @@
     "body_shape": "small theropod",
     "mode": "comparison",
     "source": "https://www.nhm.ac.uk/discover/dino-directory/velociraptor.html"
+  },
+  {
+    "name": "Ceratosaurus",
+    "file": "ceratosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/ceratosaurus.html"
+  },
+  {
+    "name": "Deinonychus",
+    "file": "deinonychus.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/deinonychus.html"
   }
 ]

@@ -27,3 +27,4 @@ h1{white-space:normal}.hero{padding-bottom:42px}.intro{max-width:850px}.design-n
 .card-title-row{display:grid;grid-template-columns:minmax(0,1fr) 88px;align-items:center;gap:12px;margin-bottom:18px}.card-title-copy{flex:1;min-width:0}.card-title-copy .scientific{margin:8px 0 0;overflow-wrap:anywhere}.size-comparison{grid-column:2;grid-row:1;justify-self:end;display:flex;align-items:center;justify-content:center;flex:0 0 88px;border-radius:8px}.size-comparison img{display:block;width:88px;height:68px;object-fit:contain}.size-comparison:hover{background:rgba(86,115,76,.06)}.card-heading{min-height:150px}.image-credit{font-size:.7rem;line-height:1.6}.image-credit a{text-underline-offset:3px}
 
 .dinosaur-card h2.long-name{font-size:1.18rem;line-height:1.2}
+.card-title-row.without-image{grid-template-columns:minmax(0,1fr)}.fictional .kind-label{color:var(--accent)}
