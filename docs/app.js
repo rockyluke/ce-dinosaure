@@ -36,3 +36,41 @@ document.addEventListener('keydown', event => {
   }
 });
 render();
+
+// writeText writes only text/plain, without HTML, links or font styling.
+const copyStatus = document.createElement('div');
+copyStatus.className = 'copy-status';
+copyStatus.setAttribute('role', 'status');
+copyStatus.setAttribute('aria-live', 'polite');
+document.body.append(copyStatus);
+let copyStatusTimer;
+function copyPlainTextFallback(text) {
+  const previousFocus = document.activeElement;
+  const field = document.createElement('textarea');
+  field.value = text;
+  field.className = 'clipboard-fallback';
+  field.setAttribute('readonly', '');
+  document.body.append(field);
+  field.select();
+  let success;
+  try { success = document.execCommand('copy'); }
+  finally { field.remove(); previousFocus?.focus({ preventScroll: true }); }
+  if (!success) throw new Error('Copy unavailable');
+}
+document.querySelector('#dinosaur-grid').addEventListener('click', async event => {
+  const button = event.target.closest('[data-copy]');
+  if (!button) return;
+  const text = button.dataset.copy;
+  try {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(text);
+    } catch { copyPlainTextFallback(text); }
+    copyStatus.textContent = lang === 'fr' ? `Copié : ${text}` : `Copied: ${text}`;
+  } catch {
+    copyStatus.textContent = lang === 'fr' ? 'Copie impossible. Sélectionnez le texte pour le copier.' : 'Unable to copy. Select the text to copy it.';
+  }
+  copyStatus.classList.add('visible');
+  clearTimeout(copyStatusTimer);
+  copyStatusTimer = setTimeout(() => { copyStatus.classList.remove('visible'); copyStatus.textContent = ''; }, 2500);
+});

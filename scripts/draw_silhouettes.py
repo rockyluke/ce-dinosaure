@@ -65,7 +65,7 @@ def build():
     scale=300/(length*100);hh=175*scale;hw=43*scale
     height=max(105,hh);width=312+hw
     human=f'<g transform="translate({312+5*scale:.4f} {height-hh:.4f}) scale({scale:.5f})">{HUMAN}</g>'
-   label=f"{d['name']} — original schematic silhouette"+(' with a 1.75 m human' if length else ', not to scale')
+   label=f"{d['name']} - original schematic silhouette"+(' with a 1.75 m human' if length else ', not to scale')
    art=f'<g transform="translate(0 {height-100:.4f})"><path d="{outline}"/>{extra}</g>'
    svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 {width+12:.4f} {height+12:.4f}" role="img"><title>{escape(label)}</title><desc>Original artwork for ce-dinosaure.fr. Schematic body plan, not an anatomical reconstruction. '+('Comparison uses the stated '+d['measurement']+'; range midpoint when applicable.' if length else 'No documented measurement; no human comparison.')+f'</desc><g fill="#56734c">{art}{human}</g></svg>\n'
    (DEST/f'{slug}.svg').write_text(svg)

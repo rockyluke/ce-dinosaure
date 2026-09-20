@@ -62,7 +62,14 @@ def card(d, lang):
             return t['missing']
         number = value.replace('.', ',') if lang == 'fr' else value
         return f'{number} {unit}'
-    rows = row('alias', d[f'aliases_{lang}'].replace(' | ', ' · ') or '—')
+    def copy_button(value):
+        label = ('Copier ' if lang == 'fr' else 'Copy ') + value
+        return f'<button type="button" class="copy-text" data-copy="{esc(value, quote=True)}" aria-label="{esc(label, quote=True)}" title="{esc(label, quote=True)}">{esc(value)}</button>'
+    alias_values = [value.strip() for value in d[f'aliases_{lang}'].split('|') if value.strip() and value.strip() != '-']
+    rows = ''
+    if alias_values:
+        alias_buttons = ' <span aria-hidden="true">·</span> '.join(copy_button(value) for value in alias_values)
+        rows = f'<div><dt>{t["alias"]}</dt><dd>{alias_buttons}</dd></div>'
     if d['period'] == 'fictional':
         rows += row('period', t['fictional'])
         rows += row('universe', d[f'universe_{lang}'])
@@ -97,9 +104,9 @@ def card(d, lang):
             alt = (f"{d['name']} : silhouette générique et humain, comparaison schématique" if lang == 'fr' else f"{d['name']}: generic silhouette and human, schematic comparison")
         else:
             alt = (f"{d['name']} : silhouette générique de sauropode, sans échelle" if lang == 'fr' else f"{d['name']}: generic sauropod silhouette, not to scale")
-        visual = f'<a class="size-comparison" href="{esc(image["source"])}" target="_blank" rel="noreferrer" title="{esc(alt)} — Natural History Museum"><img src="../{esc(image["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></a>'
+        visual = f'<a class="size-comparison" href="{esc(image["source"])}" target="_blank" rel="noreferrer" title="{esc(alt)} - Natural History Museum"><img src="../{esc(image["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></a>'
     return f'''<article class="dinosaur-card{' fictional' if d['category'] == 'fictional' else ''}" {attrs}>
-  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row{' without-image' if not visual else ''}"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2></div>{visual}</div></div>
+  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row{' without-image' if not visual else ''}"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{copy_button(d['name'])}</h2></div>{visual}</div></div>
   <dl>{rows}</dl>{note}
   <a class="edit-link" href="https://github.com/rockyluke/ce-dinosaure/edit/main/{d['file']}" target="_blank" rel="noreferrer">{t['edit']} <span aria-hidden="true">↗</span></a>
 </article>'''
@@ -116,6 +123,10 @@ def build():
             page, n = re.subn(pattern, lambda _: f'<!-- {name}:START -->\n{content}\n<!-- {name}:END -->', page, flags=re.S)
             assert n == 1, f'Missing or duplicate {name} marker'
         path.write_text(page)
+    app_version = hashlib.sha256((ROOT / 'docs/app.js').read_bytes()).hexdigest()[:12]
+    for lang in TEXT:
+        path = ROOT / 'docs' / lang / 'index.html'
+        path.write_text(re.sub(r'\.\./app\.js(?:\?v=[a-zA-Z0-9-]+)?', f'../app.js?v={app_version}', path.read_text()))
     # Refresh cached styles whenever the stylesheet changes, on every page.
     version = hashlib.sha256((ROOT / 'docs/styles.css').read_bytes()).hexdigest()[:12]
     for path in (ROOT / 'docs').glob('*/*.html'):
