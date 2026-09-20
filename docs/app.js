@@ -1,11 +1,23 @@
-// Design scaffold: no species data or network requests.
 const input = document.querySelector('#search-input');
 const filters = [...document.querySelectorAll('.filter-button')];
-try { localStorage.setItem('ce-dinosaure-language', document.documentElement.lang); } catch {}
+const groups = [...document.querySelectorAll('[data-filter]')];
+const cards = [...document.querySelectorAll('.dinosaur-card')];
+const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+try { localStorage.setItem('ce-dinosaure-language', lang); } catch {}
+const normalize = value => value.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
 function render() {
-  const active = input.value.trim() !== '' || filters.some(button => button.dataset.default === 'false' && button.getAttribute('aria-pressed') === 'true');
-  document.querySelector('#dinosaur-grid').hidden = active;
-  document.querySelector('#empty-state').hidden = !active;
+  const query = normalize(input.value);
+  const selected = Object.fromEntries(groups.map(group => [group.dataset.filter, group.querySelector('[aria-pressed="true"]').dataset.value]));
+  let count = 0;
+  cards.forEach(card => {
+    const matches = normalize(card.dataset.search).includes(query) && Object.entries(selected).every(([key, value]) => value === 'all' || card.dataset[key] === value);
+    card.hidden = !matches;
+    if (matches) count++;
+  });
+  document.querySelector('#entry-count').textContent = count;
+  document.querySelector('#entry-count-label').textContent = lang === 'fr' ? (count > 1 ? 'fiches' : 'fiche') : (count === 1 ? 'entry' : 'entries');
+  document.querySelector('#dinosaur-grid').hidden = count === 0;
+  document.querySelector('#empty-state').hidden = count !== 0;
 }
 document.querySelector('#search-form').addEventListener('submit', event => event.preventDefault());
 input.addEventListener('input', render);
@@ -23,3 +35,4 @@ document.addEventListener('keydown', event => {
     event.preventDefault(); input.focus();
   }
 });
+render();
