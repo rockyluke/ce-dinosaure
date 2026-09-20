@@ -1,5 +1,6 @@
 """Build bilingual static cards from JSON front matter in Markdown files (stdlib only)."""
 import json
+import hashlib
 import re
 from html import escape as esc
 from pathlib import Path
@@ -73,6 +74,11 @@ def build():
             pattern = f'<!-- {name}:START -->.*?<!-- {name}:END -->'
             page, n = re.subn(pattern, lambda _: f'<!-- {name}:START -->\n{content}\n<!-- {name}:END -->', page, flags=re.S)
             assert n == 1, f'Missing or duplicate {name} marker'
+        path.write_text(page)
+    # Refresh cached styles whenever the stylesheet changes, on every page.
+    version = hashlib.sha256((ROOT / 'docs/styles.css').read_bytes()).hexdigest()[:12]
+    for path in (ROOT / 'docs').glob('*/*.html'):
+        page = re.sub(r'\.\./styles\.css(?:\?v=[a-zA-Z0-9-]+)?', f'../styles.css?v={version}', path.read_text())
         path.write_text(page)
     print(f'Built {len(entries)} entries in French and English.')
 
