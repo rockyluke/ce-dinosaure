@@ -43,3 +43,13 @@ COUNT sont remplacés par le générateur.
 Site statique compatible GitHub Pages (branche `main`, dossier `/docs`).
 `docs/CNAME` contient `ce-dinosaure.fr`. L'activation de Pages et les DNS sont
 configurés séparément. Les pages restent en `noindex` pendant le travail de design.
+
+## Périodes géologiques
+
+Chaque période affichée sur une fiche renvoie à la section correspondante de
+`docs/fr/periods.html` ou `docs/en/periods.html`. Ces pages expliquent le Trias,
+le Jurassique et le Crétacé avec des résumés originaux fondés sur les trois
+articles Wikipédia français cités dans chaque section. Les dates sont des
+repères arrondis et la frise n'est pas proportionnelle aux durées.
+`docs/periods.js` conserve la section lors d'un changement de langue.
+Les filtres de régime suivent l'ordre Carnivore, Herbivore, Omnivore, après Tous.

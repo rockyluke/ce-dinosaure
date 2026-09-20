@@ -35,7 +35,8 @@ def card(d, lang):
         number = value.replace('.', ',') if lang == 'fr' else value
         return f'≈ {number} {unit}'
     rows = row('alias', d[f'aliases_{lang}'].replace(' | ', ' · ') or '—')
-    rows += row('period', t[d['period']]) + row('locations', d[f'locations_{lang}'])
+    rows += f'<div><dt>{t["period"]}</dt><dd><a class="period-link" href="periods.html#{d["period"]}">{t[d["period"]]}</a></dd></div>'
+    rows += row('locations', d[f'locations_{lang}'])
     rows += row(d['measurement'], measure(d['length_m'], 'm'))
     rows += row('weight', measure(d['weight_kg'], 'kg')) + row('diet', t[d['diet']])
     links = ' '.join(f'<a href="{esc(s["url"])}" target="_blank" rel="noreferrer">{esc(s["label"])} ↗</a>' for s in d['sources'])
