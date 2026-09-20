@@ -1,0 +1,32 @@
+---
+{
+  "name": "Urbacodon",
+  "aliases_fr": "",
+  "aliases_en": "",
+  "category": "real",
+  "period": "cretaceous",
+  "diet": "carnivore",
+  "locations_fr": "Ouzbékistan",
+  "locations_en": "Uzbekistan",
+  "length_m": "1.0",
+  "weight_kg": "",
+  "measurement": "length",
+  "kind": "dinosaur",
+  "sources": [
+    {
+      "label": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/urbacodon.html"
+    }
+  ],
+  "reviewed": "2026-09-20",
+  "image": {
+    "file": "assets/size-comparisons/urbacodon.svg",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/urbacodon.html"
+  }
+}
+---
+
+# Urbacodon
+
+- [Natural History Museum](https://www.nhm.ac.uk/discover/dino-directory/urbacodon.html)
