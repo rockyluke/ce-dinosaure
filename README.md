@@ -58,9 +58,9 @@ configurés séparément. Les pages restent en `noindex` pendant le travail de d
 ## Périodes géologiques
 
 Chaque période affichée sur une fiche renvoie à la section correspondante de
-`docs/fr/periods.html` ou `docs/en/periods.html`. Ces pages expliquent le Trias,
-le Jurassique et le Crétacé avec des résumés originaux fondés sur les trois
-articles Wikipédia français cités dans chaque section. Un complément sur le Permien situe Dimetrodon avant les dinosaures. Les dates sont des
+`docs/fr/periods.html` ou `docs/en/periods.html`. Ces pages expliquent le Permien, le Trias, le Jurassique, le Crétacé et
+le Paléogène avec des résumés originaux et une frise chronologique. Chaque
+section cite Wikipédia dans la langue de la page (français ou anglais). Un complément sur le Permien situe Dimetrodon avant les dinosaures. Les dates sont des
 repères arrondis et la frise n'est pas proportionnelle aux durées.
 `docs/periods.js` conserve la section lors d'un changement de langue.
 Les filtres de régime suivent l'ordre Carnivore, Herbivore, Omnivore, après Tous.
