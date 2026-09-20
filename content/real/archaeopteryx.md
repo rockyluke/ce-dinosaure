@@ -24,7 +24,12 @@
   ],
   "reviewed": "2026-09-20",
   "note_fr": "Dinosaure avien. Régime alimentaire incertain.",
-  "note_en": "Avian dinosaur. Diet uncertain."
+  "note_en": "Avian dinosaur. Diet uncertain.",
+  "image": {
+    "file": "assets/size-comparisons/archaeopteryx.svg",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/archaeopteryx.html"
+  }
 }
 ---
 

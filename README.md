@@ -53,3 +53,16 @@ articles Wikipédia français cités dans chaque section. Les dates sont des
 repères arrondis et la frise n'est pas proportionnelle aux durées.
 `docs/periods.js` conserve la section lors d'un changement de langue.
 Les filtres de régime suivent l'ordre Carnivore, Herbivore, Omnivore, après Tous.
+
+## Silhouettes de taille
+
+Les vignettes SVG locales de `docs/assets/size-comparisons/` proviennent des
+comparaisons schématiques du Natural History Museum : silhouettes génériques
+par famille corporelle avec humain, et non portraits anatomiques de chaque genre.
+L'objet `image` des fiches indique le fichier, le mode et sa source.
+Brontosaurus n'a pas de comparaison NHM disponible ; sa silhouette générique de
+sauropode est donc présentée sans humain et sans échelle. Les crédits et détails
+d'extraction figurent dans le README du dossier des images et `sources.json`.
+Les images se placent à côté du nom et renvoient à leur source au clic.
+Les mesures sont affichées sans symbole d'approximation ; la note générale
+continue de préciser qu'il s'agit d'estimations.

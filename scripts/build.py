@@ -33,7 +33,7 @@ def card(d, lang):
         if not value:
             return t['missing']
         number = value.replace('.', ',') if lang == 'fr' else value
-        return f'≈ {number} {unit}'
+        return f'{number} {unit}'
     rows = row('alias', d[f'aliases_{lang}'].replace(' | ', ' · ') or '—')
     rows += f'<div><dt>{t["period"]}</dt><dd><a class="period-link" href="periods.html#{d["period"]}">{t[d["period"]]}</a></dd></div>'
     rows += row('locations', d[f'locations_{lang}'])
@@ -44,8 +44,20 @@ def card(d, lang):
     aliases = ' '.join([d['name'], d['aliases_fr'], d['aliases_en']])
     attrs = ' '.join(f'data-{k}="{esc(v, quote=True)}"' for k, v in {'search': aliases, 'period': d['period'], 'diet': d['diet'], 'category': d['category']}.items())
     note = f'<p class="card-note">{esc(d.get("note_" + lang, ""))}</p>' if d.get('note_' + lang) else ''
+    image = d.get('image')
+    visual = ''
+    if image:
+        assert image['mode'] in {'comparison', 'silhouette'}
+        assert image['source'].startswith('https://')
+        asset = ROOT / 'docs' / image['file']
+        assert asset.is_file() and asset.suffix == '.svg'
+        if image['mode'] == 'comparison':
+            alt = (f"{d['name']} : silhouette générique et humain, comparaison schématique" if lang == 'fr' else f"{d['name']}: generic silhouette and human, schematic comparison")
+        else:
+            alt = (f"{d['name']} : silhouette générique de sauropode, sans échelle" if lang == 'fr' else f"{d['name']}: generic sauropod silhouette, not to scale")
+        visual = f'<a class="size-comparison" href="{esc(image["source"])}" target="_blank" rel="noreferrer" title="{esc(alt)} — Natural History Museum"><img src="../{esc(image["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></a>'
     return f'''<article class="dinosaur-card" {attrs}>
-  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><h2>{esc(d['name'])}</h2><p class="scientific">{t['genus']} : {esc(d['name'])}</p></div>
+  <div class="card-heading"><p class="kind-label">{t[d['kind']]}</p><div class="card-title-row"><div class="card-title-copy"><h2 class="{'long-name' if len(d['name']) > 15 else ''}">{esc(d['name'])}</h2><p class="scientific">{t['genus']} : {esc(d['name'])}</p></div>{visual}</div></div>
   <dl>{rows}</dl>{note}
   <a class="edit-link" href="https://github.com/rockyluke/ce-dinosaure/edit/main/{d['file']}" target="_blank" rel="noreferrer">{t['edit']} <span aria-hidden="true">↗</span></a>
 </article>'''

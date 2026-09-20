@@ -20,7 +20,12 @@
   ],
   "reviewed": "2026-09-20",
   "note_fr": "Carnivore, notamment piscivore.",
-  "note_en": "Carnivore, including fish."
+  "note_en": "Carnivore, including fish.",
+  "image": {
+    "file": "assets/size-comparisons/spinosaurus.svg",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/spinosaurus.html"
+  }
 }
 ---
 

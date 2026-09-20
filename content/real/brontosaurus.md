@@ -24,7 +24,12 @@
   ],
   "reviewed": "2026-09-20",
   "note_fr": "Genre distinct d’Apatosaurus selon la révision de 2015.",
-  "note_en": "A separate genus from Apatosaurus following the 2015 revision."
+  "note_en": "A separate genus from Apatosaurus following the 2015 revision.",
+  "image": {
+    "file": "assets/size-comparisons/brontosaurus.svg",
+    "mode": "silhouette",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/apatosaurus.html"
+  }
 }
 ---
 

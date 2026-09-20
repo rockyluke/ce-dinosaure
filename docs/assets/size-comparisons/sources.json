@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Allosaurus",
+    "file": "allosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/allosaurus.html"
+  },
+  {
+    "name": "Ankylosaurus",
+    "file": "ankylosaurus.svg",
+    "body_shape": "armoured dinosaur",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/ankylosaurus.html"
+  },
+  {
+    "name": "Apatosaurus",
+    "file": "apatosaurus.svg",
+    "body_shape": "sauropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/apatosaurus.html"
+  },
+  {
+    "name": "Archaeopteryx",
+    "file": "archaeopteryx.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/archaeopteryx.html"
+  },
+  {
+    "name": "Brachiosaurus",
+    "file": "brachiosaurus.svg",
+    "body_shape": "sauropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/brachiosaurus.html"
+  },
+  {
+    "name": "Brontosaurus",
+    "file": "brontosaurus.svg",
+    "body_shape": "sauropod",
+    "mode": "silhouette",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/apatosaurus.html"
+  },
+  {
+    "name": "Carnotaurus",
+    "file": "carnotaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/carnotaurus.html"
+  },
+  {
+    "name": "Compsognathus",
+    "file": "compsognathus.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/compsognathus.html"
+  },
+  {
+    "name": "Dilophosaurus",
+    "file": "dilophosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/dilophosaurus.html"
+  },
+  {
+    "name": "Giganotosaurus",
+    "file": "giganotosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/giganotosaurus.html"
+  },
+  {
+    "name": "Iguanodon",
+    "file": "iguanodon.svg",
+    "body_shape": "large ornithopod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/iguanodon.html"
+  },
+  {
+    "name": "Pachycephalosaurus",
+    "file": "pachycephalosaurus.svg",
+    "body_shape": "pachycephalosaur",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/pachycephalosaurus.html"
+  },
+  {
+    "name": "Parasaurolophus",
+    "file": "parasaurolophus.svg",
+    "body_shape": "large ornithopod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/parasaurolophus.html"
+  },
+  {
+    "name": "Spinosaurus",
+    "file": "spinosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/spinosaurus.html"
+  },
+  {
+    "name": "Stegosaurus",
+    "file": "stegosaurus.svg",
+    "body_shape": "armoured dinosaur",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/stegosaurus.html"
+  },
+  {
+    "name": "Triceratops",
+    "file": "triceratops.svg",
+    "body_shape": "ceratopsian",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/triceratops.html"
+  },
+  {
+    "name": "Tyrannosaurus",
+    "file": "tyrannosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/tyrannosaurus.html"
+  },
+  {
+    "name": "Velociraptor",
+    "file": "velociraptor.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/velociraptor.html"
+  }
+]

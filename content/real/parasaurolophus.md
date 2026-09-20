@@ -18,7 +18,12 @@
       "url": "https://www.nhm.ac.uk/discover/dino-directory/parasaurolophus.html"
     }
   ],
-  "reviewed": "2026-09-20"
+  "reviewed": "2026-09-20",
+  "image": {
+    "file": "assets/size-comparisons/parasaurolophus.svg",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/parasaurolophus.html"
+  }
 }
 ---
 
