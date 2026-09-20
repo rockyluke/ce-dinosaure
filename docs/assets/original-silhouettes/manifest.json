@@ -1,0 +1,212 @@
+{
+  "jinzhousaurus": {
+    "file": "assets/original-silhouettes/jinzhousaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "hadrosaur"
+  },
+  "eolambia": {
+    "file": "assets/original-silhouettes/eolambia.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "hadrosaur"
+  },
+  "tanius": {
+    "file": "assets/original-silhouettes/tanius.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "hadrosaur"
+  },
+  "equijubus": {
+    "file": "assets/original-silhouettes/equijubus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "hadrosaur"
+  },
+  "nipponosaurus": {
+    "file": "assets/original-silhouettes/nipponosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "hadrosaur"
+  },
+  "lapparentosaurus": {
+    "file": "assets/original-silhouettes/lapparentosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "sauropod"
+  },
+  "isisaurus": {
+    "file": "assets/original-silhouettes/isisaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "sauropod"
+  },
+  "zuniceratops": {
+    "file": "assets/original-silhouettes/zuniceratops.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "ceratopsian"
+  },
+  "liaoceratops": {
+    "file": "assets/original-silhouettes/liaoceratops.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "small_ceratopsian"
+  },
+  "graciliceratops": {
+    "file": "assets/original-silhouettes/graciliceratops.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "small_ceratopsian"
+  },
+  "udanoceratops": {
+    "file": "assets/original-silhouettes/udanoceratops.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "small_ceratopsian"
+  },
+  "shamosaurus": {
+    "file": "assets/original-silhouettes/shamosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "ankylosaur"
+  },
+  "tsagantegia": {
+    "file": "assets/original-silhouettes/tsagantegia.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "ankylosaur"
+  },
+  "yingshanosaurus": {
+    "file": "assets/original-silhouettes/yingshanosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "stegosaur"
+  },
+  "pyroraptor": {
+    "file": "assets/original-silhouettes/pyroraptor.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "raptor"
+  },
+  "troodon": {
+    "file": "assets/original-silhouettes/troodon.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "raptor"
+  },
+  "indoraptor": {
+    "file": "assets/original-silhouettes/indoraptor.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 7.3,
+    "body_shape": "raptor"
+  },
+  "dubreuillosaurus": {
+    "file": "assets/original-silhouettes/dubreuillosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "theropod"
+  },
+  "indominus-rex": {
+    "file": "assets/original-silhouettes/indominus-rex.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 12.2,
+    "body_shape": "theropod"
+  },
+  "scorpios-rex": {
+    "file": "assets/original-silhouettes/scorpios-rex.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 7.05,
+    "body_shape": "theropod"
+  },
+  "mosasaurus": {
+    "file": "assets/original-silhouettes/mosasaurus.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 11.5,
+    "body_shape": "mosasaur"
+  },
+  "tylosaurus": {
+    "file": "assets/original-silhouettes/tylosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "mosasaur"
+  },
+  "kronosaurus": {
+    "file": "assets/original-silhouettes/kronosaurus.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 10.0,
+    "body_shape": "pliosaur"
+  },
+  "plesiosaurus": {
+    "file": "assets/original-silhouettes/plesiosaurus.svg",
+    "mode": "comparison",
+    "measurement": "length",
+    "reference_m": 3.5,
+    "body_shape": "plesiosaur"
+  },
+  "elasmosaurus": {
+    "file": "assets/original-silhouettes/elasmosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "plesiosaur"
+  },
+  "mixosaurus": {
+    "file": "assets/original-silhouettes/mixosaurus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "ichthyosaur"
+  },
+  "sarcosuchus": {
+    "file": "assets/original-silhouettes/sarcosuchus.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "crocodile"
+  },
+  "dimetrodon": {
+    "file": "assets/original-silhouettes/dimetrodon.svg",
+    "mode": "silhouette",
+    "measurement": "length",
+    "reference_m": null,
+    "body_shape": "dimetrodon"
+  },
+  "pterodactylus": {
+    "file": "assets/original-silhouettes/pterodactylus.svg",
+    "mode": "comparison",
+    "measurement": "wingspan",
+    "reference_m": 1.04,
+    "body_shape": "pterosaur"
+  },
+  "quetzalcoatlus": {
+    "file": "assets/original-silhouettes/quetzalcoatlus.svg",
+    "mode": "comparison",
+    "measurement": "wingspan",
+    "reference_m": 11.0,
+    "body_shape": "pterosaur"
+  }
+}

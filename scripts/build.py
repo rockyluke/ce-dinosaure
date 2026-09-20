@@ -11,6 +11,30 @@ TEXT = {
     'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', pterosaur='Pterosaur', marine_reptile='Marine reptile', hybrid='Fictional hybrid', fictional='Contemporary fiction', universe='Universe', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', permian='Permian', synapsid='Synapsid', crocodyliform='Crocodyliform', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
 }
 
+# Display-only country metadata: source Markdown stays plain text.
+COUNTRY_CODES = dict(zip(
+    'Algeria|Antarctica|Argentina|Australia|Austria|Belgium|Brazil|Canada|China|Egypt|England|France|Germany|India|Italy|Japan|Kazakhstan|Lesotho|Madagascar|Malawi|Mongolia|Morocco|Netherlands|Niger|Portugal|Romania|Russia|South Africa|Spain|Switzerland|Tanzania|Tunisia|USA|United Kingdom|Uzbekistan|Wales|Zimbabwe'.split('|'),
+    'DZ|AQ|AR|AU|AT|BE|BR|CA|CN|EG|GB-ENG|FR|DE|IN|IT|JP|KZ|LS|MG|MW|MN|MA|NL|NE|PT|RO|RU|ZA|ES|CH|TZ|TN|US|GB|UZ|GB-WLS|ZW'.split('|'),
+))
+ORIGINAL_IMAGES = json.loads((ROOT / 'docs/assets/original-silhouettes/manifest.json').read_text())
+
+def country_flag(code):
+    if code.startswith('GB-'):
+        # Unicode subdivision flags for England and Wales.
+        return chr(0x1F3F4) + ''.join(chr(0xE0000 + ord(c)) for c in code.replace('-', '').lower()) + chr(0xE007F)
+    return ''.join(chr(0x1F1E6 + ord(c) - ord('A')) for c in code)
+
+def locations_html(d, lang):
+    labels = d[f'locations_{lang}'].split(', ')
+    countries = d['locations_en'].split(', ')
+    assert len(labels) == len(countries), d['name']
+    rendered = []
+    for country, label in zip(countries, labels):
+        code = COUNTRY_CODES.get(country.split(' (', 1)[0])
+        flag = f'<span class="country-flag" aria-hidden="true">{country_flag(code)}</span> ' if code else ''
+        rendered.append(f'<span class="country">{flag}{esc(label)}</span>')
+    return ', '.join(rendered)
+
 def load_entries():
     entries = []
     for path in sorted((ROOT / 'content').glob('*/*.md')):
@@ -44,7 +68,7 @@ def card(d, lang):
         rows += row('universe', d[f'universe_{lang}'])
     else:
         rows += f'<div><dt>{t["period"]}</dt><dd><a class="period-link" href="periods.html#{d["period"]}">{t[d["period"]]}</a></dd></div>'
-    rows += row('locations', d[f'locations_{lang}'])
+    rows += f'<div><dt>{t["locations"]}</dt><dd>{locations_html(d, lang)}</dd></div>'
     rows += row(d['measurement'], measure(d['length_m'], 'm'))
     rows += row('weight', measure(d['weight_kg'], 'kg')) + row('diet', t[d['diet']])
     links = ' '.join(f'<a href="{esc(s["url"])}" target="_blank" rel="noreferrer">{esc(s["label"])} ↗</a>' for s in d['sources'])
@@ -53,7 +77,17 @@ def card(d, lang):
     attrs = ' '.join(f'data-{k}="{esc(v, quote=True)}"' for k, v in {'search': aliases, 'period': d['period'], 'diet': d['diet'], 'category': d['category']}.items())
     note = f'<p class="card-note">{esc(d.get("note_" + lang, ""))}</p>' if d.get('note_' + lang) else ''
     image = d.get('image')
+    original = ORIGINAL_IMAGES.get(Path(d['file']).stem) if not image else None
     visual = ''
+    if original:
+        asset = ROOT / 'docs' / original['file']
+        assert asset.is_file()
+        if original['mode'] == 'comparison':
+            detail = 'silhouette originale et humain de 1,75 m ; comparaison schématique' if lang == 'fr' else 'original silhouette and 1.75 m human; schematic comparison'
+        else:
+            detail = 'silhouette originale, sans échelle' if lang == 'fr' else 'original silhouette, not to scale'
+        alt = d['name'] + ' : ' + detail
+        visual = f'<span class="size-comparison original-silhouette" title="{esc(alt)}"><img src="../{esc(original["file"])}" alt="{esc(alt)}" width="88" height="68" loading="lazy" decoding="async"></span>'
     if image:
         assert image['mode'] in {'comparison', 'silhouette'}
         assert image['source'].startswith('https://')

@@ -96,3 +96,17 @@ Aucune silhouette NHM n'est attribuée aux sept autres nouvelles fiches en
 l'absence de comparaison vérifiée ; leurs titres occupent toute la largeur.
 Les filtres géologiques ne sélectionnent que les animaux réels : conserver
 « Toutes » pour afficher les hybrides fictifs.
+
+## Drapeaux et illustrations complémentaires
+
+Les drapeaux sont ajoutés par `scripts/build.py` à partir des pays en anglais,
+sans modifier les champs Markdown. Les noms français et anglais restent visibles
+et accessibles. Les régions sans drapeau national et les lieux fictifs restent
+en texte. Les précisions entre parenthèses sont conservées.
+
+Les 30 vignettes manquantes sont des SVG originaux générés par
+`python3 scripts/draw_silhouettes.py`, puis intégrés par `python3 scripts/build.py`.
+Le manifeste dans `docs/assets/original-silhouettes/` évite toute modification
+des fiches. Un humain de 1,75 m apparaît uniquement si la mesure est documentée ;
+les autres dessins sont sans échelle. Voir le README de ce dossier pour les
+conventions de comparaison et les limites des dessins.

@@ -28,3 +28,5 @@ h1{white-space:normal}.hero{padding-bottom:42px}.intro{max-width:850px}.design-n
 
 .dinosaur-card h2.long-name{font-size:1.18rem;line-height:1.2}
 .card-title-row.without-image{grid-template-columns:minmax(0,1fr)}.fictional .kind-label{color:var(--accent)}
+
+.country-flag{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:1em;vertical-align:baseline}.country{display:inline}.original-silhouette{cursor:default}
