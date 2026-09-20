@@ -138,5 +138,89 @@
     "body_shape": "small theropod",
     "mode": "comparison",
     "source": "https://www.nhm.ac.uk/discover/dino-directory/deinonychus.html"
+  },
+  {
+    "name": "Microraptor",
+    "file": "microraptor.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/microraptor.html"
+  },
+  {
+    "name": "Gastonia",
+    "file": "gastonia.svg",
+    "body_shape": "armoured dinosaur",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/gastonia.html"
+  },
+  {
+    "name": "Avimimus",
+    "file": "avimimus.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/avimimus.html"
+  },
+  {
+    "name": "Coelophysis",
+    "file": "coelophysis.svg",
+    "body_shape": "small theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/coelophysis.html"
+  },
+  {
+    "name": "Therizinosaurus",
+    "file": "therizinosaurus.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/therizinosaurus.html"
+  },
+  {
+    "name": "Plateosaurus",
+    "file": "plateosaurus.svg",
+    "body_shape": "prosauropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/plateosaurus.html"
+  },
+  {
+    "name": "Corythosaurus",
+    "file": "corythosaurus.svg",
+    "body_shape": "large ornithopod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/corythosaurus.html"
+  },
+  {
+    "name": "Dreadnoughtus",
+    "file": "dreadnoughtus.svg",
+    "body_shape": "sauropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/dreadnoughtus.html"
+  },
+  {
+    "name": "Psittacosaurus",
+    "file": "psittacosaurus.svg",
+    "body_shape": "ceratopsian",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/psittacosaurus.html"
+  },
+  {
+    "name": "Styracosaurus",
+    "file": "styracosaurus.svg",
+    "body_shape": "ceratopsian",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/styracosaurus.html"
+  },
+  {
+    "name": "Stygimoloch",
+    "file": "stygimoloch.svg",
+    "body_shape": "pachycephalosaur",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/stygimoloch.html"
+  },
+  {
+    "name": "Utahraptor",
+    "file": "utahraptor.svg",
+    "body_shape": "large theropod",
+    "mode": "comparison",
+    "source": "https://www.nhm.ac.uk/discover/dino-directory/utahraptor.html"
   }
 ]

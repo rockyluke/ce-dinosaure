@@ -7,19 +7,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {
-    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', pterosaur='Ptérosaure', marine_reptile='Reptile marin', hybrid='Hybride fictif', fictional='Fiction contemporaine', universe='Univers', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', count='fiches'),
-    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', pterosaur='Pterosaur', marine_reptile='Marine reptile', hybrid='Fictional hybrid', fictional='Contemporary fiction', universe='Universe', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
+    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', pterosaur='Ptérosaure', marine_reptile='Reptile marin', hybrid='Hybride fictif', fictional='Fiction contemporaine', universe='Univers', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', permian='Permien', synapsid='Synapside', crocodyliform='Crocodyliforme', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', count='fiches'),
+    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', pterosaur='Pterosaur', marine_reptile='Marine reptile', hybrid='Fictional hybrid', fictional='Contemporary fiction', universe='Universe', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', permian='Permian', synapsid='Synapsid', crocodyliform='Crocodyliform', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', count='entries'),
 }
 
 def load_entries():
     entries = []
     for path in sorted((ROOT / 'content').glob('*/*.md')):
         data = json.loads(path.read_text().split('---', 2)[1])
-        assert data['period'] in {'triassic', 'jurassic', 'cretaceous', 'fictional'}
+        assert data['period'] in {'permian', 'triassic', 'jurassic', 'cretaceous', 'fictional'}
         assert (data['period'] == 'fictional') == (data['category'] == 'fictional')
         assert data['diet'] in {'herbivore', 'carnivore', 'omnivore', 'unknown'}
         assert data['category'] in {'real', 'fictional'}
-        assert data['kind'] in {'dinosaur', 'pterosaur', 'marine_reptile', 'hybrid'}
+        assert data['kind'] in {'dinosaur', 'pterosaur', 'marine_reptile', 'hybrid', 'synapsid', 'crocodyliform'}
         if data['category'] == 'fictional':
             assert data.get('universe_fr') and data.get('universe_en')
         assert data['measurement'] in {'length', 'wingspan'}
