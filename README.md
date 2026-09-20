@@ -4,8 +4,8 @@ Catalogue bilingue pour **ce-dinosaure.fr**, dans la continuité de
 [ce-requin](https://github.com/rockyluke/ce-requin) et
 [cette-baleine](https://github.com/rockyluke/cette-baleine).
 
-19 fiches de genres réels : 18 dinosaures (dont Archaeopteryx, dinosaure avien)
-et Pteranodon, explicitement identifié comme ptérosaure. Spinosaurus est présent
+18 fiches de genres de dinosaures réels (dont Archaeopteryx, dinosaure avien).
+Spinosaurus est présent
 une seule fois. Apatosaure et Brontosaure sont des alias recherchables de deux
 genres distincts : Apatosaurus et Brontosaurus.
 
@@ -31,7 +31,7 @@ Le générateur utilise uniquement la bibliothèque standard Python.
 Les pages HTML générées sont versionnées et lisibles sans JavaScript.
 `docs/app.js` filtre les fiches localement par nom/alias, période, régime et
 catégorie. Aucun téléchargement des fiches n'est nécessaire à l'ouverture.
-Le compteur indique le nombre de fiches visibles, ptérosaure compris.
+Le compteur indique le nombre de fiches visibles.
 Les filtres se combinent ; « Réinitialiser » efface tous les critères.
 
 ## Design et hébergement

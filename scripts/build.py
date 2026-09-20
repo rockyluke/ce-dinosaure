@@ -6,8 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {
-    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', pterosaur='Ptérosaure · hors dinosaures', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', genus='Genre', count='fiches'),
-    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', pterosaur='Pterosaur · not a dinosaur', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', genus='Genus', count='entries'),
+    'fr': dict(alias='Alias', period='Période', locations='Lieux', length='Longueur', wingspan='Envergure', weight='Poids', diet='Régime', sources='Sources', edit='Éditer cette fiche', missing='À compléter', dinosaur='Dinosaure', jurassic='Jurassique', cretaceous='Crétacé', triassic='Trias', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Incertain', genus='Genre', count='fiches'),
+    'en': dict(alias='Aliases', period='Period', locations='Locations', length='Length', wingspan='Wingspan', weight='Weight', diet='Diet', sources='Sources', edit='Edit this entry', missing='To be completed', dinosaur='Dinosaur', jurassic='Jurassic', cretaceous='Cretaceous', triassic='Triassic', herbivore='Herbivore', carnivore='Carnivore', omnivore='Omnivore', unknown='Uncertain', genus='Genus', count='entries'),
 }
 
 def load_entries():
@@ -17,7 +17,7 @@ def load_entries():
         assert data['period'] in {'triassic', 'jurassic', 'cretaceous'}
         assert data['diet'] in {'herbivore', 'carnivore', 'omnivore', 'unknown'}
         assert data['category'] in {'real', 'fictional'}
-        assert data['kind'] in {'dinosaur', 'pterosaur'}
+        assert data['kind'] == 'dinosaur'
         assert data['measurement'] in {'length', 'wingspan'}
         assert data['sources'] and all(s['url'].startswith('https://') for s in data['sources'])
         data['file'] = path.relative_to(ROOT).as_posix()
